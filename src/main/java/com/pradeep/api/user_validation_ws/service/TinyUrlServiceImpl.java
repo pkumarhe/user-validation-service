@@ -41,8 +41,9 @@ public class TinyUrlServiceImpl implements TinyUrlService{
             savedTinyURLEntity.setShortenString(UUID.randomUUID().toString().substring(28));
             savedTinyURLEntity.setCreationDate(LocalDateTime.now());
             savedTinyURLEntity.setExpirationDate(getExpirationDate(savedTinyURLEntity.getExpirationDate().toString(),savedTinyURLEntity.getCreationDate()));
+            TinyURLEntity updatedTinyURLEntity=tinyURLRepository.save(savedTinyURLEntity);
             TinyUrlResponseDto tinyUrlResponseDto=new TinyUrlResponseDto();
-            BeanUtils.copyProperties(savedTinyURLEntity, tinyUrlResponseDto);
+            BeanUtils.copyProperties(updatedTinyURLEntity, tinyUrlResponseDto);
             tinyUrlResponseDto.setUuid(UUID_USER_INVITE.get(new Random().nextInt(UUID_USER_INVITE.size())));
             return tinyUrlResponseDto;
         }
