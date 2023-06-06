@@ -26,7 +26,7 @@ public class OTPController {
 
     @Autowired
     private OtpService otpService;
-    @PostMapping("generate")
+    @PostMapping("/generate")
     @Operation(summary = "Creates tiny-url", description = "Creates tiny-url", tags = {"tiny-url"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Successful operation"),
@@ -38,7 +38,7 @@ public class OTPController {
         return new ResponseEntity<OtpResponseDto>(otpResponseDto, HttpStatus.OK);
     }
 
-    @PostMapping("re-generate")
+    @PostMapping("/re-generate")
     @Operation(summary = "Creates tiny-url", description = "Creates tiny-url", tags = {"tiny-url"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Successful operation"),
@@ -50,7 +50,7 @@ public class OTPController {
         return new ResponseEntity<OtpResponseDto>(otpResponseDto, HttpStatus.OK);
     }
 
-    @PostMapping("validate")
+    @PostMapping("/validate")
     @Operation(summary = "Creates tiny-url", description = "Creates tiny-url", tags = {"tiny-url"})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Successful operation"),
